@@ -38,3 +38,6 @@ print(valid_json_files, len(valid_json_files))
 print()
 print("Invalid Files:")
 print(invalid_json_files, len(invalid_json_files))
+if len(invalid_json_files) > 0:
+    print("##vso[task.logissue type=error;]", invalid_json_files)
+    exit(1)
