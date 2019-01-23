@@ -16,6 +16,9 @@ def parse_file(directory, file_name):
         except ValueError as e:
             print(f"JSON object issue:{full_path} {str(e)}")
             print("##vso[task.logissue type=error;]" f"JSON object issue:{full_path} {str(e)}")
+            if 'char 0' in str(e):
+                print("##vso[task.logissue type=error;]" f"You have a BOM at the start of your file? maybe? https://stackoverflow.com/questions/8898294/convert-utf-8-with-bom-to-utf-8-with-no-bom-in-python")
+
             invalid_json_files.append(full_path)
 
 
