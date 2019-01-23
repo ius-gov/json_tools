@@ -15,6 +15,7 @@ def parse_file(directory, file_name):
             valid_json_files.append(full_path)
         except ValueError as e:
             print(f"JSON object issue:{full_path} {str(e)}")
+            print("##vso[task.logissue type=error;]" f"JSON object issue:{full_path} {str(e)}")
             invalid_json_files.append(full_path)
 
 
